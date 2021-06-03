@@ -1,0 +1,1 @@
+{"columns": ["Gender", "age", "education", "currentSmoker", "cigsPerDay", "BP Meds", "prevalentStroke", "prevalentHyp", "diabetes", "tot cholesterol", "Systolic BP", "Diastolic BP", "BMI", "heartRate", "glucose"], "data": [["Male", 39.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 195.0, 106.0, 70.0, 26.97, 80.0, 77.0]]}

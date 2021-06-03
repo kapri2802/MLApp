@@ -1,0 +1,21 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h4><a class="media-heading">PROJECT: {{ proj.projectName }}</a></h4><br>
+</div>
+<div>
+    <h6><a class="media-heading">DATA FILE: {{ proj.datafileName }}</a></h6><br>
+</div>
+
+<div>
+    <h4>{{ msg }}</h4><br>
+</div>
+<div class="row">
+<!--<div>-->
+    <object data="http://127.0.0.1:8088/superset/welcome/" width="1200" height="700">
+        Error: Embedded data could not be displayed.
+    </object>
+</div>
+{% endblock content %}

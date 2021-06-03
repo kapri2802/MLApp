@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h5><a class="media-heading">Predicted Data:</a></h5><br>
+</div>
+<div>
+    <h5><a class="media-heading" href="#">Download Result</a></h5><br>
+</div>
+<div>
+    	<h4><a class="media-heading" href="/projectsAll/project" >Go to Old Model</a></h4><br>
+</div>
+<div>
+ <table>
+        <thead>
+
+          <tr>
+            {% for col in titles %}
+            <th>
+
+              {{col}}
+
+            </th>
+            {% endfor %}
+          </tr>
+
+        </thead>
+        <tbody>
+          {% for row in tables %}
+          <tr>
+            {% for col, row_ in zip(titles, row) %}
+            <td>{{row_}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+
+      </table>
+</div>
+{% endblock content %}
+
+

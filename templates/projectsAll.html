@@ -1,0 +1,39 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<!--<h4><a class="media-heading">PROJECTS:</a></h4><br>-->
+<h4>PROJECTS:</h4><br>
+<div class="row">
+<!--<div>-->
+	{% for proj in projects %}
+<!--		<article class="media content-section">-->
+			<article class="content-section">
+		  <div class="media-body">
+<!--		    <div class="article-metadata">-->
+<!--		      <a class="mr-2" href="#">{{ proj }}</a>-->
+<!--		      <small class="text-muted">{{ proj }}</small>-->
+<!--		    </div>-->
+<!--		    <h2><a class="article-title" href="#">{{ proj }}</a></h2>-->
+<!--              <h4><a class="media-heading" href="project/{{ proj.projectName }}">{{ proj.projectName }}</a></h4>-->
+<!--			  	<a class="media-heading" href="project/{{ proj.projectName }}">-->
+<!--					<h4>{{ proj.projectName }}</h4>-->
+<!--					<p>CREATED ON {{ proj.createdOn }}</p>-->
+<!--					<p>DATA FILE: {{ proj.datafileName }}</p>-->
+<!--				</a>-->
+			  <form action="/projectsAll" method="POST">
+				  <button class="homepage-button" type="submit" name="thisProject" value="{{ proj }}">
+					  <h5><b>{{ proj.projectName }}</b></h5>
+					  <i>CREATED ON {{ proj.createdOn }}<br>
+						  DATA FILE: {{ proj.datafileName }}
+					  </i><br>
+<!--					  <i>DATA FILE: {{ proj.datafileName }}</i>-->
+				  </button>
+			  </form>
+<!--			  <p class="article-content">{{ proj }}</p>-->
+
+		  </div>
+		</article>
+	{% endfor %}
+</div>
+{% endblock content %}

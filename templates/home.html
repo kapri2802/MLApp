@@ -1,0 +1,51 @@
+
+
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+        {% if msg %}
+            <div>
+                <h4 class="media-heading">{{ msg }}</h4>
+            </div>
+        {% endif %}
+        <b class="navbar-brand mr-4" >Please select user</b>
+        <div>
+            <form action="/home" method="POST">
+
+                    <!-- form to select user-->
+                    <div>
+                    <label for="userName">User Name</label>
+                    <select id="userName" name="userName" required>
+                        <option selected disabled hidden style='display: none' value=''>Select User</option>
+                        <option value="abhi">Abhishek</option>
+                        <option value="manish">Manish</option>
+                        <option value="dinesh">Dinesh</option>
+                    </select>
+                    </div>
+
+                <br>
+                <div class="row">
+                    <article class="content-section">
+<!--                        <h4><a class="media-heading" href="projectCreate">Create new project</a></h4>-->
+<!--                        <input class="homepage-button" name="choice" type="submit" value="New Project">-->
+                        <button class="homepage-button" type="submit" name="choice" value="newProject">
+                            <h5><b>New Project</b></h5>
+                            <i>Build project by uploading new dataset</i>
+                        </button>
+                    </article>
+                    <article class="content-section">
+<!--                        <h4><a class="media-heading" href="projectsAll">View existing projects</a></h4>-->
+<!--                        <input class="homepage-button" name="choice" type="submit" value="View Projects">-->
+                        <button class="homepage-button" type="submit" name="choice" value="viewProject">
+                            <h5><b>View Projects</b></h5>
+                            <i>View existing projects and datasets</i>
+                        </button>
+                    </article>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
+

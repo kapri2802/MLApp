@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h4><a class="media-heading">PROJECT: {{ proj.projectName }}</a></h4><br>
+</div>
+<div>
+    <h6><a class="media-heading">DATA FILE: {{ proj.datafileName }}</a></h6><br>
+</div>
+<div>
+<!--    {{ proj.datafile }}-->
+ <table>
+        <thead>
+
+          <tr>
+            {% for col in titles %}
+            <th>
+
+              {{col}}
+
+            </th>
+            {% endfor %}
+          </tr>
+
+        </thead>
+        <tbody>
+          {% for row in tables %}
+          <tr>
+            {% for col, row_ in zip(titles, row) %}
+            <td>{{row_}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+
+      </table>
+</div>
+
+<div>
+    <h4><a class="media-heading" href="project/proj1/visuals" >VISUALS</a></h4><br>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/abhishek.kapri/Downloads/appFlask/appFlask/mlruns/1/80a9524d52664e1b8d7a85da5c116ac5/artifacts
+end_time: 1622009961541
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 80a9524d52664e1b8d7a85da5c116ac5
+run_uuid: 80a9524d52664e1b8d7a85da5c116ac5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1622009961117
+status: 3
+tags: []
+user_id: Abhishek.kapri

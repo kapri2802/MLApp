@@ -1,0 +1,16 @@
+{
+    "target": "Heart-Att", 
+    "train_size": "0.7",
+    "categorical_features": "currentSmoker",
+    "model":"None",
+    "categorical_imputation": "constant",
+    "numeric_features": "age", 
+    "numeric_imputation" :"mean",
+    "normalize" : "True", 
+    "normalize_method" : "zscore",
+    "remove_outliers" : "True",
+    "outliers_threshold" : "0.05",
+    "remove_multicollinearity" : "True", 
+    "multicollinearity_threshold" : "0.9", 
+    "sort_model" : "F1"
+}

@@ -1,0 +1,10 @@
+{
+	"AWS_ACCESS_KEY": "AKIATDYG75K5MJZJYVMY",
+    "AWS_ACCESS_SECRET_KEY":"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",
+	"PROJECT_BUCKET" : "testbucketai",
+	"file" : "C:/Users/abhishek.kapri/Downloads/US_Heart_Patients.csv",
+	"key" : "user/Heart",
+	"downloadloc" : "C:/Users/abhishek.kapri/Desktop/csvtodownload/hrt.csv",
+	"temploc" : "C:/Users/abhishek.kapri/Desktop/csvtodownload/sample2.json",
+	"propkey" : "user/Heartpropsys"
+}

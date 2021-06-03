@@ -1,0 +1,5 @@
+flaskvirtual/
+__pycache__/
+.idea/
+flask_session/
+mlruns/

@@ -1,0 +1,33 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+        <b class="navbar-brand mr-4" >Please upload your dataset</b>
+        <div>
+            <form action="/projectCreate" method="POST">
+                <div>
+                <label for="userName">User Name</label>
+                <select id="userName" name="userName" required>
+<!--                    <option selected disabled hidden style='display: none' value=''>Select User</option>-->
+                    <option selected value="{{ user }}">{{ user }}</option>
+<!--                    <option value="manish">Manish</option>-->
+<!--                    <option value="dinesh">Dinesh</option>-->
+                </select>
+                </div>
+                <br>
+                <div>
+                <label for="projectName">Project Name</label>
+                <input required type="text" id="projectName" name="projectName" placeholder="Unique name for Project">
+                </div>
+                <br>
+                <div>
+                <input required type="file" id="myFile" name="fileName">
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
+

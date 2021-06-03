@@ -1,0 +1,16 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h4><a class="media-heading">PROJECT: {{ proj.projectName }}</a></h4><br>
+</div>
+<div>
+    <h6><a class="media-heading">DATA FILE: {{ proj.datafileName }}</a></h6><br>
+</div>
+
+<div>
+    <h4>{{ msg }}</h4><br>
+</div>
+
+{% endblock content %}

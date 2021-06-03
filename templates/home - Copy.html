@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <p><h1>Click on the "Choose File" button to upload your data file</h1></p>
+    <div>
+    <form action="/fileUpload" method="POST">
+        <label for "userName">User Name</label>
+        <select id="userName" name="userName">
+            <option selected disabled hidden style='display: none' value=''>Select User</option>
+            <option value="abhi">Abhishek</option>
+            <option value="manish">Manish</option>
+            <option value="dinesh">Dinesh</option>
+        </select>
+        <br>
+        <label for="datasetName">Dataset Name</label>
+        <input type="text" id="datasetName" name="datasetName">
+        <br>
+        <input type="file" id="myFile" name="fileName">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</body>
+</html>

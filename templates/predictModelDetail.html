@@ -1,0 +1,22 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h5><a class="media-heading">Prediction</a></h5><br>
+</div>
+<h5><b>Please select File on which prediction to be done:</b></h5>
+
+            <form action="/projectsAll/project/trainModel/predictModel" method="POST">
+            <div>
+                    <label for="unseenDataFile">File :</label>
+                    <input type="file" id="unseenDataFile" name="unseenDataFile">
+                    <button type="submit" value="submit">
+                            Submit Details
+                    </button>
+            </div>
+            </form>
+
+{% endblock content %}
+
+

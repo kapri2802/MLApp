@@ -1,0 +1,27 @@
+artifact_path: model
+flavors:
+  python_function:
+    env: conda.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    python_version: 3.6.13
+  sklearn:
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 0.23.2
+run_id: 5b597eb740434558b7d7f7bba50595a9
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  type: dataframe
+signature:
+  inputs: '[{"name": "Gender", "type": "string"}, {"name": "age", "type": "double"},
+    {"name": "education", "type": "double"}, {"name": "currentSmoker", "type": "double"},
+    {"name": "cigsPerDay", "type": "double"}, {"name": "BP Meds", "type": "double"},
+    {"name": "prevalentStroke", "type": "double"}, {"name": "prevalentHyp", "type":
+    "double"}, {"name": "diabetes", "type": "double"}, {"name": "tot cholesterol",
+    "type": "double"}, {"name": "Systolic BP", "type": "double"}, {"name": "Diastolic
+    BP", "type": "double"}, {"name": "BMI", "type": "double"}, {"name": "heartRate",
+    "type": "double"}, {"name": "glucose", "type": "double"}]'
+  outputs: null
+utc_time_created: '2021-04-28 06:09:42.188954'
