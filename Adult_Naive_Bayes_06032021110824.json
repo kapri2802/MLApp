@@ -1,0 +1,1 @@
+{"uploadedon": "06032021110824", "model_file": "Adult", "model_type": "Naive_Bayes", "target_column": "salary", "training_size": "0.70", "sort_model": "F1", "category_imputation": "constant", "numerical_imputation": "mean", "normalization_method": "minmax", "outliers_value": "0.05", "multicollinearity_value": "0.05"}

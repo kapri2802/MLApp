@@ -1,0 +1,1 @@
+{"uploadedon": "06032021104059", "model_file": "Dataset", "target_column": "Heart-Att", "training_size": "0.75", "sort_model": "F1", "category_imputation": "mode", "numerical_imputation": "median", "normalization_method": "maxabs", "outliers_value": "0.05", "multicollinearity_value": "0.05"}
