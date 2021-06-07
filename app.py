@@ -29,6 +29,7 @@ from scripts.uploadFile import UploadFile
 from scripts.getProjectDetailsForUser import GetProjectDetailsForUser
 from scripts.getModelDetailsForUser import GetModelDetailsForUser
 from scripts.trainModel import trainModel_classification
+from scripts.predictData import predictModelData
 
 # create flask instance taking __name__ of the script
 app = Flask(__name__)
@@ -279,9 +280,12 @@ def trainedModelDetails():
     trainModelDetails = trainModel_classification(userName, thisProject["projectName"],modeljson,thisProject["datafileName"])
     userModelAll = trainModelDetails.modelTrain_Classification()
     print(f'user Model details: {userModelAll}')
-    return render_template('trainedModelDetail.html', proj=thisProject, models = userModelAll,
+    try:
+        return render_template('trainedModelDetail.html', proj=thisProject, models = userModelAll,
                             tables=list(userModelAll.values.tolist()), titles=userModelAll.columns.values, link_column="id",zip=zip,
                             title=thisProject["projectName"], description=thisProject["projectName"] )
+    except:
+        return render_template('Error.html', proj=thisProject, models = userModelAll)
 
 
 @app.route('/projectsAll/project/modelDetail')
@@ -301,9 +305,11 @@ def projectModelDetails():
     modeljson = modeljson.replace("\'", "\"")
     print("type of modeljson ",type(modeljson))
     modelDetails = json.loads(modeljson)
-    # key = modelDetails['model_file']+"_"+modelDetails['model_type']+"_"+modelDetails['uploadedon']
-    # print("key of the predictmodel",key)
-    modelResult = trainModel_classification.downloadImage(userName,thisProject["projectName"])
+    global key
+    key = modelDetails['model_file']+"_"+modelDetails['model_type']+"_"+modelDetails['uploadedon']
+    print("key of the predictmodel",key)
+    modelDetailsObj = predictModelData(userName,thisProject["projectName"],key,'NA')
+    modelResult = modelDetailsObj.downloadImage()
     print("function complete save model",modelResult)
     return render_template('projectModelDetail.html', model = modelDetails)
 
@@ -333,15 +339,20 @@ def predictModel():
         print('userName not found in session.')
         return redirect(url_for('home'))
     userName = session['userName']
+    if not session.get("thisProject"):
+        print('thisProject not found in session. ')
+        return redirect(url_for('projectsAll'))
+    thisProject = eval(session['thisProject'])
     if request.method == 'POST':
         print('got POST request from project train model')
         fileParams = request.form.to_dict()
-        print("file parameter",fileParams)
+        # print("file parameter",fileParams)
         jsonForModelPredict = json.dumps(fileParams, indent = 4)  
         # print(jsonForModelTrain)
-        print(f'user want to redict model with parameter {jsonForModelPredict}')
-        predictedModel = trainModel_classification.predictOnTrainedModel(jsonForModelPredict)
-        print("type od predicted Model",type(predictedModel))
+        print(f'user want to predict model with parameter {jsonForModelPredict}')
+        modelDetailsObj = predictModelData(userName,thisProject["projectName"],key,jsonForModelPredict)
+        predictedModel = modelDetailsObj.predictOnTrainedModel()
+        predictedModel.to_csv('temp/predictedResult.csv', index=False)
         print("function complete predict model",predictedModel)
         return render_template('predictedDataDetail.html',model = predictedModel,tables=list(predictedModel.values.tolist()), 
                                 titles=predictedModel.columns.values, link_column="id",zip=zip)

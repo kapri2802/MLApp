@@ -1,1 +1,0 @@
-{"uploadedon": "06032021105054", "model_file": "Dataset", "model_type": "Logistic_Regression", "target_column": "Heart-Att", "training_size": "0.75", "sort_model": "AUC", "category_imputation": "constant", "numerical_imputation": "mean", "normalization_method": "None", "outliers_value": "None", "multicollinearity_value": "None"}

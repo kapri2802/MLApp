@@ -3,7 +3,7 @@
 
 {% block content %}
     <div>
-        value to be print: {{model}}
+        <h4><b>Model Details:</b></h4>
     </div>
     <div>
             <h5><b>{{ model['model_file'] }}</b></h5>    
@@ -11,13 +11,14 @@
             <p>Model Type: {{ model['model_type'] }}
             </i><br>
     </div>
-    </div>
+    <div>
+    	<h4><a class="media-heading" href="/projectsAll/project/trainModel/predictModel" >Predict Model</a></h4><br>
+	</div>
+    <br>
     <div>
     <h5>Area Under Curve</h5>
 			  <img src="{{ url_for('static', filename='AUC.png') }}" alt="AUC" style="width:817px;height:457px;">
 	</div>
-    <div>
-    	<h4><a class="media-heading" href="/projectsAll/project/trainModel/predictModel" >Predict Model</a></h4><br>
-	</div>
+    
 
 {% endblock content %}

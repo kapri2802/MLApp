@@ -1,1 +1,0 @@
-{"uploadedon": "06022021183728", "model_file": "adultnewnh", "model_type": "Quadratic_Discriminant_Analysis", "target_column": "salary", "training_size": "0.75", "sort_model": "F1", "category_imputation": "constant", "numerical_imputation": "median", "normalization_method": "zscore", "outliers_value": "0.05", "multicollinearity_value": "0.05"}

@@ -1,5 +1,6 @@
 
 # import library
+from warnings import catch_warnings
 from numpy.lib.npyio import save
 import pandas as pd
 from pycaret.classification import *
@@ -110,8 +111,8 @@ class trainModel_classification():
         categorical_imputation= self.category_imputation,numeric_imputation= self.numerical_imputation,
         normalize= bool(self.normalization_type), normalize_method = self.normalization_method,
         remove_outliers= bool(self.outliers_type), outliers_threshold = float(self.outliers_value), 
-        remove_multicollinearity = bool(self.multicollinearity_type), multicollinearity_threshold = float(self.multicollinearity_value))
-        # ,fix_imbalance=True,fix_imbalance_method=imblearn.over_sampling.BorderlineSMOTE())
+        remove_multicollinearity = bool(self.multicollinearity_type), multicollinearity_threshold = float(self.multicollinearity_value)
+        ,fix_imbalance=True,fix_imbalance_method=imblearn.over_sampling.BorderlineSMOTE())
         
         if self.model_type == 'None':
             modelTrained = compare_models(sort = self.sort_model)
@@ -128,10 +129,14 @@ class trainModel_classification():
         # best = tune_model(modelTrained, n_iter=200, choose_better=True)
         # report the best model
         # print(best)
-        plot_model(modelFinal, save= True)
-        plot_model(modelFinal, save= True,plot = 'confusion_matrix')
-        os.replace("AUC.png", "static\AUC.png")
-        os.replace("Confusion Matrix.png", "static\Confusion Matrix.png")
+        try:
+            plot_model(modelFinal, save= True)
+            plot_model(modelFinal, save= True,plot = 'confusion_matrix')
+            os.replace("AUC.png", "static\AUC.png")
+            os.replace("Confusion Matrix.png", "static\Confusion Matrix.png")
+        except:
+            print("There is no AUC")
+            return "There is no AUC Plot in this Model"
         return best_model_results[:1]
 
     # function to save model
@@ -187,22 +192,6 @@ class trainModel_classification():
         
         return saveModelName
         
-
-    def predictOnTrainedModel(dataFile):
-        newData = json.loads(dataFile)
-        data_unseen = pd.read_csv(newData['unseenDataFile']) 
-        # generate predictions on unseen data
-        predictions = predict_model(modelFinal, data = data_unseen)
-        return predictions
-
-    
-    def downloadImage(userName,projectName):
-        S3Conf = json.load(open('config.json'))
-        print(S3Conf)
-        client = boto3.client('s3', aws_access_key_id=S3Conf['AWS_ACCESS_KEY'], aws_secret_access_key=S3Conf['AWS_ACCESS_SECRET_KEY'])
-        transfer = S3Transfer(client)
-        transfer.download_file(S3Conf['PROJECT_BUCKET'],userName + "/" + projectName + "/" + "model" + "/" + saveModelName +"/"+ saveModelName +".png","static\AUC.png")
-
 
 if __name__ == "__main__":
     

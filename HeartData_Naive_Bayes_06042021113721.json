@@ -1,0 +1,1 @@
+{"uploadedon": "06042021113721", "model_file": "HeartData", "model_type": "Naive_Bayes", "target_column": "Heart-Att", "training_size": "0.70", "sort_model": "F1", "category_imputation": "mode", "numerical_imputation": "mean", "normalization_method": "minmax", "outliers_value": "0.05", "multicollinearity_value": "0.05"}
